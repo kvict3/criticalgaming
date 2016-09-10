@@ -1,0 +1,87 @@
+body{
+	background: url("../images/galaxy.jpg") center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: silver;
+}
+.jumbotron{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.text-center {
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+
+.panel-body {
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.panel-title {
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.form-group {
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.panel-default>.panel-heading{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+/*.panel>.panel-default{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}*/
+.panel-primary{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.btn-default{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+#full-member-list{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.panel{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.panel-heading{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+.panel-title{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+	font-family: 'Press Start 2P', cursive;
+	color: silver;
+}
+
+

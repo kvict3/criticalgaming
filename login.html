@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Critical Gaming</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- LINK TO FIREBASE GOES HERE -->
+<!-- 	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+
+
+
+
+</head>
+<body>
+
+<div class="embed-responsive">
+  <iframe class="embed-responsive-item" width="0" height="0" src="https://www.youtube.com/embed/hYH3j3u4Ltw?rel=0&amp&autoplay=1;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="container">
+	
+	<br>
+
+	<!-- Jumbotron -->
+	<div class="jumbotron">
+		<h1 class="text-center">Critical Gaming</h1>
+	</div>
+
+	<div class="row">
+
+			<!-- Most Recent Member Panel -->
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Most Recent Member</h3>
+				</div>
+				<div class="panel-body" id="recentMember">
+					<h2 id="namedisplay"></h2>
+					<h4 id="emaildisplay"></h4>
+					<h4 id="agedisplay"></h4>
+					<p id="commentdisplay"></p>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Sign-Up Panel-->
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">New Member Sign-Up</h3>
+				</div>
+				<div class="panel-body">
+					
+					<!-- Sign-up Form (note the various input "types")-->
+					<form role="form">
+					  <div class="form-group">
+					    <label for="text">Name:</label>
+					    <input type="text" class="form-control" id="nameinput">
+					  </div>
+					  <div class="form-group">
+					    <label for="text">Username:</label>
+					    <input type="email" class="form-control" id="emailinput">
+					  </div>
+					  <div class="form-group">
+					    <label for="text">Age:</label>
+					    <input type="number" class="form-control" id="ageinput">
+					  </div>
+					  <div class="form-group">
+						 <label for="comment">What are your favorite games?</label>
+						 <textarea class="form-control" rows="5" id="commentinput"></textarea>
+					   </div>
+					  <button type="submit" class="btn btn-default" id="addUser">Submit</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		
+
+			<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Games</h3>
+				</div>
+
+		<button type="submit" href="week-3-game/index.html" class="btn btn-default" id="addUser">Psychic</button>
+
+		<button type="submit" href="week-4-game/index.html" class="btn btn-default" id="addUser">Gems</button>
+
+		</div>
+		</div>
+
+		
+
+		<!-- Wells for displaying all users -->
+		<div class="col-lg-12">
+		<br>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">All Members</h3>
+				</div>
+				<div class="panel-body">
+						<div id="full-member-list"></div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+// Firebase link
+
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDt04vza-0yF8R3JbgkjKjcst33pIShzXM",
+    authDomain: "combo-be6fc.firebaseapp.com",
+    databaseURL: "https://combo-be6fc.firebaseio.com",
+    storageBucket: "combo-be6fc.appspot.com",
+  };
+
+  firebase.initializeApp(config);
+  </script>
+
+
+// var url ='https://combo-be6fc.firebaseio.com/'
+// var dataRef = new Firebase(url);
+// Initial Values
+
+<!-- Latest compiled and minified CSS & JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script>
+
+var name = "";
+var email = "";
+var age = 0;
+var comment = "";
+// Capture Button Click
+$("#addUser").on("click", function() {
+
+	name = $('#nameinput').val().trim();
+	email = $('#emailinput').val().trim();
+	age = $('#ageinput').val().trim();
+	comment = $('#commentinput').val().trim();
+
+
+	// Code for the push
+	config.push({
+		name: name,
+		email: email,
+		age: age,
+		comment: comment,
+		dateAdded: Firebase.ServerValue.TIMESTAMP
+	})
+	
+	return false;
+});
+
+
+config.on("child_added", function(childSnapshot) {
+	// Log everything that's coming out of snapshot
+	console.log(childSnapshot.val().name);
+	console.log(childSnapshot.val().name);
+	console.log(childSnapshot.val().email);
+	console.log(childSnapshot.val().age);
+	console.log(childSnapshot.val().comment);
+	console.log(childSnapshot.val().joinDate)
+	
+	// full list of items to the well
+   				
+		$('#full-member-list').append("<div class='well'><span id='name'> "+childSnapshot.val().name+" </span><span id='email'> "+childSnapshot.val().email+" </span><span id='age'> "+childSnapshot.val().age+" </span><span id='comment'> "+childSnapshot.val().comment+" </span></div>")
+  
+
+// Handle the errors
+}, function(errorObject){
+	//console.log("Errors handled: " + errorObject.code)
+});
+
+config.orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
+	// Change the HTML to reflect
+	$("#namedisplay").html(snapshot.val().name);
+	$("#emaildisplay").html(snapshot.val().email);
+	$("#agedisplay").html(snapshot.val().age);
+	$("#commentdisplay").html(snapshot.val().comment);
+})
+
+
+</script>
+
+<!-- Latest compiled and minified CSS & JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+	
+</body>
+</html>
