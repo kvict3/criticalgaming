@@ -16,7 +16,14 @@ body{
 	font-family: 'Press Start 2P', cursive;
 	color: silver;
 }
-
+.well{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+}
+.form-control{
+	background: rgb(0, 0, 0); 
+	background: rgba(0, 0, 0, 0.5); 
+}
 .panel-body {
 	background: rgb(0, 0, 0); 
 	background: rgba(0, 0, 0, 0.5); 

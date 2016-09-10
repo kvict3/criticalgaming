@@ -15,6 +15,23 @@ body{
 	float: right;
 	background-color: yellow;
 }
+.button {
+    background-color: rgb(0, 139, 255); 
+    border: 1px solid blue;
+    color: white;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Chewy', cursive;
+    color: black;
+    cursor: pointer;
+    float: center;
+}
+
+.button:hover {
+    background-color: #3e8e41;
+}
 button{
 	width:75px;
 	height:75px;
