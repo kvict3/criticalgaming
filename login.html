@@ -7,12 +7,9 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<!-- LINK TO FIREBASE GOES HERE -->
-<!-- 	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script> -->
-<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
-
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
 
 
@@ -22,6 +19,7 @@
 <div class="embed-responsive">
   <iframe class="embed-responsive-item" width="0" height="0" src="https://www.youtube.com/embed/hYH3j3u4Ltw?rel=0&amp&autoplay=1;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 </div>
+
 
 <div class="container">
 	
@@ -35,7 +33,7 @@
 	<div class="row">
 
 			<!-- Most Recent Member Panel -->
-		<div class="col-lg-6" style="text-align: center">
+		<div class="col-lg-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Most Recent Gamer</h3>
@@ -83,8 +81,6 @@
 			</div>
 		</div>
 
-		
-
 			<div class="col-lg-6 col-lg-offset-3" style="text-align: center">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -117,41 +113,19 @@
 	</div>
 </div>
 
-
-
-
-
-
-
-
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDt04vza-0yF8R3JbgkjKjcst33pIShzXM",
-    authDomain: "combo-be6fc.firebaseapp.com",
-    databaseURL: "https://combo-be6fc.firebaseio.com",
-    storageBucket: "combo-be6fc.appspot.com",
-  };
-
-  firebase.initializeApp(config);
-  </script>
-
-
-
-
 <!-- Latest compiled and minified CSS & JS -->
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <script>
 
+// Firebase link
+var url ='https://criticalgaming.firebaseio.com/'
+var dataRef = new Firebase(url);
+// Initial Values
 var name = "";
 var email = "";
 var age = 0;
 var comment = "";
-var databaseURL = "https://combo-be6fc.firebaseio.com";
 // Capture Button Click
 $("#addUser").on("click", function() {
 
@@ -162,7 +136,7 @@ $("#addUser").on("click", function() {
 
 
 	// Code for the push
-	databaseURL.push({
+	dataRef.push({
 		name: name,
 		email: email,
 		age: age,
@@ -174,7 +148,7 @@ $("#addUser").on("click", function() {
 });
 
 
-databaseURL.on("child_added", function(childSnapshot) {
+dataRef.on("child_added", function(childSnapshot) {
 	// Log everything that's coming out of snapshot
 	console.log(childSnapshot.val().name);
 	console.log(childSnapshot.val().name);
@@ -193,7 +167,7 @@ databaseURL.on("child_added", function(childSnapshot) {
 	//console.log("Errors handled: " + errorObject.code)
 });
 
-databaseURL.orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
+dataRef.orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
 	// Change the HTML to reflect
 	$("#namedisplay").html(snapshot.val().name);
 	$("#emaildisplay").html(snapshot.val().email);
@@ -203,9 +177,6 @@ databaseURL.orderByChild("dateAdded").limitToLast(1).on("child_added", function(
 
 
 </script>
-
-<!-- Latest compiled and minified CSS & JS -->
-<script src="https://code.jquery.com/jquery.js"></script>
 	
 </body>
 </html>
