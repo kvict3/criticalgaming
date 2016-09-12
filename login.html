@@ -7,6 +7,7 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<!-- LINK TO FIREBASE GOES HERE -->
 	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
@@ -33,7 +34,7 @@
 	<div class="row">
 
 			<!-- Most Recent Member Panel -->
-		<div class="col-lg-6">
+		<div class="col-lg-6" id="recent">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Most Recent Gamer</h3>
@@ -49,7 +50,7 @@
 
 
 		<!-- Sign-Up Panel-->
-		<div class="col-lg-6">
+		<div class="col-lg-6" id="signup">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title" style="text-align: center">New Gamer Sign-Up</h3>
@@ -81,7 +82,7 @@
 			</div>
 		</div>
 
-			<div class="col-lg-6 col-lg-offset-3" style="text-align: center">
+			<div class="col-lg-6 col-lg-offset-3" style="text-align: center" id="games">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Games</h3>
@@ -97,7 +98,7 @@
 		
 
 		<!-- Wells for displaying all users -->
-		<div class="col-lg-12" style="text-align: center">
+		<div class="col-lg-12" style="text-align: center" id="gamers">
 		<br>
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -117,6 +118,13 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <script>
+
+// Animation
+$('.jumbotron').addClass('animated infinite pulse');
+$('#recent').addClass('animated fadeInLeft');
+$('#signup').addClass('animated fadeInRight');
+$('#games').addClass('animated fadeInUp');
+$('#gamers').addClass('animated fadeInUp');
 
 // Firebase link
 var url ='https://criticalgaming.firebaseio.com/'
